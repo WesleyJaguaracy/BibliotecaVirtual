@@ -4,7 +4,9 @@ namespace Livros
 {
     class Principal
     {
-        static void Main(string[] args)
+        private const bool V = false;
+
+        static void Main(string[] args, bool , bool v)
         {
             ArrayList<Livros> L = new ArrayList<>();
             char verificador;            
@@ -237,8 +239,6 @@ namespace Livros
                         break;
 
                     case '5':
-                        bool = false;
-
                         break;
 
                     default:
@@ -249,7 +249,7 @@ namespace Livros
 
                         break;
                 }
-            } while (bool);
+            } while (v);
 
             Console.Write("Sistema finalizado!");
         }
