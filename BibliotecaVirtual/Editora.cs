@@ -166,13 +166,14 @@ namespace BibliotecaVirtual
             Console.Write("Aperte enter para continuar...");
         try
         {
-            System.in.read();
+            Console.ReadLine();
+
         }
         catch (Exception e)
         { }
     }
 
-    @Override
+    
     public string toString() => "Titulo : " + titulo +
                 "\nEditora : " + editora +
                 "\nAutor : " + autor +
@@ -180,7 +181,7 @@ namespace BibliotecaVirtual
                 "\nNumero de exemplares : " + numeroExemplares +
                 '\n';
 
-        @Override
+        
     public bool equals(Object o)
     {
         if (this == o) return true;
@@ -223,5 +224,6 @@ namespace BibliotecaVirtual
         } while (check);
 
         return titulo;
+    }
     }
 }

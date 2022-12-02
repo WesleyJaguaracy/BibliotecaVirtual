@@ -115,8 +115,4 @@ namespace BibliotecaVirtual
             return email;
         }
     }
-
-    class Autor : NewBaseType
-    {
-        @Override
-    }
+}

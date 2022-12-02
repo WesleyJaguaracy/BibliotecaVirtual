@@ -161,7 +161,7 @@ namespace BibliotecaVirtual
             Console.Write("Aperte enter para continuar...");
             try
             {
-                System.in.read();
+                 Console.ReadLine();
             }
             catch (Exception e)
             { }
