@@ -11,12 +11,12 @@ namespace BibliotecaVirtual
 
         private static int cont = 0;
         private static int cont1 = 0;
-        private static boolean teste = true;
+        private static bool teste = true;
 
         private static int totalDeTitulos = 0;
         private static int totalDeExemplares = 0;
 
-        private String titulo;
+        private string titulo;
         private Editora editora;
         private Autor autor;
         private int numeroPags;
@@ -25,8 +25,7 @@ namespace BibliotecaVirtual
 
         public void cadastraLivros()
         {
-            Console.Write("Digite o título do livro: ");
-            this.setTitulo(teclado.nextLine());
+            Console.Write("Digite o título do livro: ");            
 
             do
             {
