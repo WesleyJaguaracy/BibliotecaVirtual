@@ -6,7 +6,7 @@ namespace Livros
     {
         private const bool V = false;
 
-        static void Main(string[] args, bool , bool v)
+        static void Main(string[] args, bool v)
         {
             ArrayList<Livros> L = new ArrayList<>();
             char verificador;            
