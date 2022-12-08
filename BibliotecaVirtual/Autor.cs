@@ -4,59 +4,52 @@ using System.Text;
 
 namespace BibliotecaVirtual
 {
-    internal class NewBaseType
+    class Autor
     {
-        private String nome;
-        private String sobrenome;
-        private String email;
+        private string Nome { get; set; }
+        private string Sobrenome { get; set; }
+        private string Email { get; set; }
 
-        public string getEmail()
+        public String GetNome()
         {
-            return email;
+            return Nome;
         }
 
-        public string getNome()
+        public void SetNome(String nome)
         {
-            return nome;
+            this.Nome = verificaChar(nome);
         }
 
-        public string getSobrenome()
+        public String GetSobrenome()
         {
-            return sobrenome;
+            return Sobrenome;
         }
 
-        //Scanner teclado = new Scanner(System.in);
+        public void SetSobrenome(String sobrenome)
+        {
+            this.Sobrenome = verificaChar(sobrenome);
+        }
+
+        public String GetEmail()
+        {
+            return Email;
+        }
+
+        public void SetEmail(String email)
+        {
+            this.Email = verificaEmail(email);
+        }
 
         public void lerAutor()
         {
-            Console.Write("Digite o primeiro nome do autor: ");
-            //this.setNome(teclado.nextLine());
+            Console.WriteLine("Digite o primeiro nome do autor: ");
+            Console.ReadLine();
 
-            Console.Write("Digite o sobrenome do autor: ");
-            //this.setSobrenome(teclado.nextLine());
+            Console.WriteLine("Digite o sobrenome do autor: ");
+            Console.ReadLine();
 
-            Console.Write("Digite o email do autor: ");
-            //this.setEmail(teclado.nextLine());
-
-        }
-
-        public void setEmail(string email)
-        {
-            this.email = verificaEmail(email);
-        }
-
-        public void setNome(string nome)
-        {
-            this.nome = verificaChar(nome);
-        }
-
-        public void setSobrenome(string sobrenome)
-        {
-            this.sobrenome = verificaChar(sobrenome);
-        }
-        public string toString()
-        {
-            return "" + nome + " " + sobrenome + "";
+            Console.WriteLine("Digite o email do autor: ");
+            Console.ReadLine();
         }
 
         public string verificaChar(string nome)
@@ -68,27 +61,28 @@ namespace BibliotecaVirtual
             {
                 x = true;
 
-                for (int i = 0; i < nome.length(); i++)
+                for (int i = 0; i < nome.Length; i++)
                 {
-                    a = nome.charAt(i);
+                    a = nome[i];
                     int b = a;
                     if (b == 32 || b >= 65 && b <= 90 || b >= 97 && b <= 122)
                     {
-                    }
-                    else
+
+                    } else 
                     {
                         x = false;
                     }
                 }
-                if (!x)
+                if(!x)
                 {
-                    Console.Write("Nome inválido\nInforme um nome/sobrenome apenas com letras");
-                    //nome = teclado.nextLine();
+                    Console.WriteLine("Nome inválido\n Informe um nome/sobrenome apenas com letras");
+                    Console.ReadLine();
                 }
             } while (!x);
             return nome;
         }
-        public string verificaEmail(string email)
+
+        public string verificaEmail(String email)
         {
             bool x;
             char a;
@@ -97,9 +91,9 @@ namespace BibliotecaVirtual
             {
                 x = true;
 
-                for (int i = 0; i < email.length(); i++)
+                for (int i = 0; i < email.Length; i++)
                 {
-                    a = email.charAt(i);
+                    a = email[i];
                     int b = a;
                     if (b == 64)
                     {
@@ -108,11 +102,16 @@ namespace BibliotecaVirtual
                 }
                 if (x)
                 {
-                    Console.Write("Email inválido\nInforme um email válido");
-                    //email = teclado.nextLine();
+                    Console.WriteLine("Email inválido\n Informe um email válido");
+                    Console.ReadLine();
                 }
             } while (x);
             return email;
+        }
+
+        public string toString()
+        {
+            return "" + Nome + "" + Sobrenome + "";
         }
     }
 }

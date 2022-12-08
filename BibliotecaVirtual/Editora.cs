@@ -5,226 +5,79 @@ using System.Text;
 namespace BibliotecaVirtual
 {
     class Editora
-    { 
-    private static int cont = 0;
-    private static int cont1 = 0;
-    private static bool teste = true;
-
-    private static int totalDeTitulos = 0;
-    private static int totalDeExemplares = 0;
-
-    private String titulo;
-    private Editora editora;
-    private Autor autor;
-    private int numeroPags;
-    private int numeroExemplares;
-
-    //Scanner teclado = new Scanner(System.in);
-
-
-    public void cadastraLivros()
     {
-        //System.out.println("Digite o título do livro: ");
-        //this.setTitulo(teclado.nextLine());
-            Console.Write("Digite o título do livro: ");
+        private string nomeSolicitante { get; set; }
+        private string endereco { get; set; }
+        private string email { get; set; }
 
-        do
+        public string GetEmail()
         {
-            try
-            {
-                    Console.Write("Digite o número de páginas: ");
-                if (cont != 0)
-                {
-                    teclado.next();
-                }
-                this.setNumeroPags(teclado.nextInt());
-
-                teste = false;
-            }
-            catch (Exception e)
-            {
-                    Console.Write("Caracter inválido!");
-                teste = true;
-                cont++;
-            }
-        } while (teste);
-
-        do
+            return email;
+        }
+        public void SetEmail(string email)
         {
-            try
-            {
-                    Console.Write("Digite o numero de exemplares: ");
-                if (cont1 != 0)
-                {
-                    teclado.next();
-                }
-                this.setNumeroExemplares(teclado.nextInt());
-
-                teste = false;
-            }
-            catch (Exception e)
-            {
-                    Console.Write("Caracter inválido!");
-                    teste = true;
-                    cont1++;
-            }
-        } while (teste);
-
-        Editora e = new Editora();
-
-        e.lerEditora();
-        this.setEditora(e);
-
-        Autor a = new Autor();
-
-        a.lerAutor();
-        this.setAutor(a);
-
-            Console.Write("Cadastro completo!\n");
-            Livros.totalDeTitulos = Livros.totalDeTitulos + 1;
-            Livros.totalDeExemplares = Livros.totalDeExemplares + this.getNumeroExemplares();
-            enterToContinue();
-    }
-
-        internal void lerEditora()
+            this.email = VerificaEmail(email);
+        }
+        public string GetEndereco()
         {
-            throw new NotImplementedException();
+            return endereco;
+        }
+        public void SetEndereco(string endereco)
+        {
+            this.endereco = endereco;
+        }
+        public string GetNome()
+        {
+            return nomeSolicitante;
+        }
+        public void SetNome(string nome)
+        {
+            this.nomeSolicitante = nome;
         }
 
-        public static int getTotalDeTitulos()
-    {
-        return Livros.totalDeTitulos;
-    }
-
-    public static void setTotalDeTitulos(int totalDeTitulos)
-    {
-        Livros.totalDeTitulos = totalDeTitulos;
-    }
-
-    public static int getTotalDeExemplares()
-    {
-        return Livros.totalDeExemplares;
-    }
-
-    public static void setTotalDeExemplares(int totalDeExemplares)
-    {
-        Livros.totalDeExemplares = totalDeExemplares;
-    }
-
-    public String getTitulo()
-    {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo)
-    {
-        this.titulo = checaTitulo(titulo);
-    }
-
-    public Editora getEditora()
-    {
-        return editora;
-    }
-
-    public void setEditora(Editora editora)
-    {
-        this.editora = editora;
-    }
-
-    public Autor getAutor()
-    {
-        return autor;
-    }
-
-    public void setAutor(Autor autor)
-    {
-        this.autor = autor;
-    }
-
-    public int getNumeroPags()
-    {
-        return numeroPags;
-    }
-
-    public void setNumeroPags(int numeroPags)
-    {
-        this.numeroPags = numeroPags;
-    }
-
-    public int getNumeroExemplares()
-    {
-        return numeroExemplares;
-    }
-
-    public void setNumeroExemplares(int numeroExemplares)
-    {
-        this.numeroExemplares = numeroExemplares;
-    }
-
-    public static void enterToContinue()
-    {
-            Console.Write("Aperte enter para continuar...");
-        try
+        public void lerEditora()
         {
+            Console.WriteLine("Digite o nome da editora: ");
             Console.ReadLine();
 
+            Console.WriteLine("Digite o endereço da editora: ");
+            Console.ReadLine();
+
+            Console.WriteLine("Digite o email da editora: ");
+            Console.ReadLine();
         }
-        catch (Exception e)
-        { }
-    }
 
-    
-    public string toString() => "Titulo : " + titulo +
-                "\nEditora : " + editora +
-                "\nAutor : " + autor +
-                "\nNumero de paginas : " + numeroPags +
-                "\nNumero de exemplares : " + numeroExemplares +
-                '\n';
 
-        
-    public bool equals(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Livros livros = (Livros)o;
-
-        if (getNumeroPags() != livros.getNumeroPags()) return false;
-        if (getNumeroExemplares() != livros.getNumeroExemplares()) return false;
-        if (!getTitulo().equals(livros.getTitulo())) return false;
-        if (!getEditora().equals(livros.getEditora())) return false;
-        return getAutor().equals(livros.getAutor());
-
-    }
-
-    public Livros(String titulo)
-    {
-        this.titulo = titulo;
-    }
-
-    public Livros()
-    {
-        return;
-    }
-
-    public String checaTitulo(String titulo)
-    {
-        bool check = true;
-
-        do
+        public string VerificaEmail(string email)
         {
-            if (titulo.length() >= 5)
-            {
-                check = false;
-            }
-            if (check)
-            {
-                Console.Write("O título deve ter no mínimo 5 caracteres\nDigite o título do livro: ");
-                //titulo = teclado.nextLine();
-            }
-        } while (check);
+            bool x;
+            char a;
 
-        return titulo;
-    }
+            do
+            {
+                x = true;
+
+                for (int i = 0; i < email.Length; i++)
+                {
+                    a = email[i];
+                    int b = a;
+                    if (b == 64)
+                    {
+                        x = false;
+                    }
+                }
+                if (x)
+                {
+                    Console.WriteLine("Email inválido\n Informe um email válido");
+                    Console.ReadLine();
+                }
+            } while (x);
+            return email;
+        }
+
+        public string toString()
+        {
+            return "" + nomeSolicitante + "";
+        }
     }
 }
