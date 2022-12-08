@@ -26,9 +26,10 @@ namespace BibliotecaVirtual
                                   "\n\t|\t4 - PESQUISAR LIVRO\t|" +
                                   "\n\t|\t5 - SAIR\t\t|" +
                                   "\n\t_________________________");
+                var textoDigitado = Console.ReadLine();
+                verificador = textoDigitado[0];
 
-                verificador = Convert.ToChar[0];
-                switch (verificador) 
+                switch (verificador)
                 {
                     case '1':
                         Livros a = new Livros();
@@ -40,25 +41,22 @@ namespace BibliotecaVirtual
 
 
                     case '2':
-                        if(livros.() > 0)
-                        {
-                            for (int i = 0; i < length; i++)
+                        
+                            /*for (int i = 0; i < livros.Count; i++)
                             {
-
-                            }
-                        }
-
-
-
-
-
-                    default:
+                            Console.WriteLine(i + " - " + livros(i).GetTitulo() + 
+                                "\n_________________________\n");
+                            }*/
+                        
                         break;
+                        
+
+                    
                 }
 
-            } while (bool);
-            {
-            }
+            } while (true);
+            
+          
         }
     }
 }
