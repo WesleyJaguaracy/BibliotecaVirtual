@@ -42,13 +42,13 @@ namespace BibliotecaVirtual
 
         public void lerAutor()
         {
-            Console.WriteLine("Digite o primeiro nome do autor: ");
+            Console.Write("Digite o primeiro nome do autor: ");
             Console.ReadLine();
 
-            Console.WriteLine("Digite o sobrenome do autor: ");
+            Console.Write("Digite o sobrenome do autor: ");
             Console.ReadLine();
 
-            Console.WriteLine("Digite o email do autor: ");
+            Console.Write("Digite o email do autor: ");
             Console.ReadLine();
         }
 
@@ -68,14 +68,15 @@ namespace BibliotecaVirtual
                     if (b == 32 || b >= 65 && b <= 90 || b >= 97 && b <= 122)
                     {
 
-                    } else 
+                    }
+                    else
                     {
                         x = false;
                     }
                 }
-                if(!x)
+                if (!x)
                 {
-                    Console.WriteLine("Nome inválido\n Informe um nome/sobrenome apenas com letras");
+                    Console.Write("Nome inválido\n Informe um nome/sobrenome apenas com letras");
                     Console.ReadLine();
                 }
             } while (!x);
@@ -102,7 +103,7 @@ namespace BibliotecaVirtual
                 }
                 if (x)
                 {
-                    Console.WriteLine("Email inválido\n Informe um email válido");
+                    Console.Write("Email inválido\n Informe um email válido");
                     Console.ReadLine();
                 }
             } while (x);

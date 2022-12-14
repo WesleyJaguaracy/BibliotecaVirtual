@@ -37,13 +37,13 @@ namespace BibliotecaVirtual
 
         public void lerEditora()
         {
-            Console.WriteLine("Digite o nome da editora: ");
+            Console.Write("Digite o nome da editora: ");
             Console.ReadLine();
 
-            Console.WriteLine("Digite o endereço da editora: ");
+            Console.Write("Digite o endereço da editora: ");
             Console.ReadLine();
 
-            Console.WriteLine("Digite o email da editora: ");
+            Console.Write("Digite o email da editora: ");
             Console.ReadLine();
         }
 
@@ -68,7 +68,7 @@ namespace BibliotecaVirtual
                 }
                 if (x)
                 {
-                    Console.WriteLine("Email inválido\n Informe um email válido");
+                    Console.Write("Email inválido\n Informe um email válido");
                     Console.ReadLine();
                 }
             } while (x);

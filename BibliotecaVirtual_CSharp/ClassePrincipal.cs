@@ -12,14 +12,14 @@ namespace BibliotecaVirtual
             char verificador;
             char variavel;
             bool bool1 = true;
-            bool teste = true;            
+            bool teste = true;
 
             do
             {
                 int totalDeTitulos = Livros.GetTotalDeTitulos();
                 int totalDeExemplares = Livros.GetTotalDeExemplares();
 
-                Console.WriteLine(totalDeTitulos + " TÍTULOS CADASTRADOS\n" +
+                Console.Write(totalDeTitulos + " TÍTULOS CADASTRADOS\n" +
                                   totalDeExemplares + " EXEMPLARES CADASTRADOS" +
                                   "\n\t_________________________" +
                                   "\n\t|\t1 - CADASTRAR LIVRO\t|" +
@@ -48,7 +48,7 @@ namespace BibliotecaVirtual
                         {
                             for (int i = 0; i < livros.Count(); i++)
                             {
-                                Console.WriteLine(i + " - " + livros[i].GetTitulo() + "\n_________________________\n");
+                                Console.Write(i + " - " + livros[i].GetTitulo() + "\n_________________________\n");
                             }
 
                             int cont = 0;
@@ -57,7 +57,7 @@ namespace BibliotecaVirtual
                             {
                                 try
                                 {
-                                    Console.WriteLine("Insira o código do livro a ser deletado: ");
+                                    Console.Write("Insira o código do livro a ser deletado: ");
                                     if (cont != 0)
                                     {
                                         Console.ReadLine();
@@ -242,7 +242,7 @@ namespace BibliotecaVirtual
 
                             } while (booleano);
 
-                        } 
+                        }
                         else
                         {
                             Console.WriteLine("Tente cadastrar algo antes de procurar!");

@@ -88,7 +88,7 @@ namespace BibliotecaVirtual
             {
                 try
                 {
-                    Console.WriteLine("Digite o número de páginas: ");
+                    Console.Write("Digite o número de páginas: ");
                     Console.ReadLine();
                     if (cont != 0)
                     {
@@ -100,17 +100,17 @@ namespace BibliotecaVirtual
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Caracter inválido");
+                    Console.Write("Caracter inválido");
                     teste = true;
                     cont++;
-                } 
-            } while (teste) ;
+                }
+            } while (teste);
 
             do
             {
                 try
                 {
-                    Console.WriteLine("Digite o número de exemplares: ");
+                    Console.Write("Digite o número de exemplares: ");
                     if (cont != 0)
                     {
                         Console.ReadLine();
@@ -122,7 +122,7 @@ namespace BibliotecaVirtual
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Caracter inválido!");
+                    Console.Write("Caracter inválido!");
                     teste = true;
                     cont++;
                 }
@@ -138,11 +138,11 @@ namespace BibliotecaVirtual
             a.lerAutor();
             this.SetAutor(a);
 
-            Console.WriteLine("Cadastro completo!\n");
+            Console.Write("Cadastro completo!\n");
             Livros.totalDeTitulos = Livros.totalDeTitulos + 1;
             Livros.totalDeExemplares = Livros.totalDeExemplares + this.GetNumeroExemplares();
             enterToContinue();
-        }        
+        }
 
 
         public static void enterToContinue()
@@ -154,7 +154,7 @@ namespace BibliotecaVirtual
             }
             catch (Exception)
             {
-                
+
             }
         }
 
@@ -183,18 +183,19 @@ namespace BibliotecaVirtual
 
             do
             {
-                if(titulo.Length >= 5)
+                if (titulo.Length >= 5)
                 {
                     check = false;
-                } if(check)
+                }
+                if (check)
                 {
-                    Console.WriteLine("O título deve ter no mínimo 5 caracteres\n Digite o título do livro: ");
+                    Console.Write("O título deve ter no mínimo 5 caracteres\n Digite o título do livro: ");
                     Console.ReadLine();
                 }
-                
+
             } while (check);
 
-        return titulo;
+            return titulo;
         }
-     }  
+    }
 }
