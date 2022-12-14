@@ -11,7 +11,7 @@ namespace BibliotecaVirtual
             List<Livros> livros = new List<Livros>();
             char verificador;
             char variavel;
-            bool boole = true;
+            bool bool1 = true;
             bool teste = true;            
 
             do
@@ -65,7 +65,7 @@ namespace BibliotecaVirtual
                                     int check = int.Parse(Console.ReadLine());
                                     Livros.SetTotalDeTitulos(totalDeTitulos - 1);
                                     Livros.SetTotalDeExemplares(totalDeExemplares - livros.Count(check).NumeroExemplares());
-                                    livros.Remove(check);
+                                    var v = livros.Remove(check);
 
                                     Console.WriteLine("Livri excluido com êxito!");
                                     Livros.enterToContinue();
@@ -146,77 +146,121 @@ namespace BibliotecaVirtual
                         if (livros.Count() > 0)
                         {
                             bool booleano = true;
-                        }
-                        do
-                        {
-                            Console.WriteLine("\n\tDeseja pesquisar livros pelo: " +
-                                        "\n\t___________________" +
-                                        "\n\t|\t1 - TÍTULO\t\t|" +
-                                        "\n\t|\t2 - AUTOR\t\t|" +
-                                        "\n\t|t3 - EDITORA\t\t|" +
-                                        "\n\t|t4 - SAIR\t\t|" +
-                                        "\n\t_____________________");
-                            var varDigitado = Console.ReadLine();
-                            variavel = varDigitado[0];
 
-                            switch (variavel)
+                            do
                             {
-                                case '1':
-                                    Livros buscaTitulo = new Livros();
-                                    Console.WriteLine("Digite o título do livro a ser procurado: ");
-                                    Console.ReadLine();
-                                    buscaTitulo.SetTitulo(Console.ReadLine());
-                                    for (int j = 0; j < Livros.cont; j++)
-                                    {
-                                        if (buscaTitulo.GetTitulo().Equals(livros.Count(j).GetTitulo()))
+                                Console.WriteLine("\n\tDeseja pesquisar livros pelo: " +
+                                            "\n\t___________________" +
+                                            "\n\t|\t1 - TÍTULO\t\t|" +
+                                            "\n\t|\t2 - AUTOR\t\t|" +
+                                            "\n\t|t3 - EDITORA\t\t|" +
+                                            "\n\t|t4 - SAIR\t\t|" +
+                                            "\n\t_____________________");
+                                var varDigitado = Console.ReadLine();
+                                variavel = varDigitado[0];
+
+                                switch (variavel)
+                                {
+                                    case '1':
+                                        Livros buscaTitulo = new Livros();
+                                        Console.WriteLine("Digite o título do livro a ser procurado: ");
+                                        Console.ReadLine();
+                                        buscaTitulo.SetTitulo(Console.ReadLine());
+                                        for (int j = 0; j < Livros.cont; j++)
                                         {
-                                            Console.WriteLine();
-                                            Livros.enterToContinue();
+                                            if (buscaTitulo.GetTitulo().Equals(livros.Count(j).GetTitulo()))
+                                            {
+                                                Console.WriteLine();
+                                                Livros.enterToContinue();
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Nenhum livro cadastrado com esse título");
+                                            }
                                         }
-                                        else
+
+                                        break;
+
+                                    case '2':
+                                        Livros buscarAutor = new Livros();
+                                        Autor autor = new Autor();
+                                        Console.WriteLine("Digite o nome do autor do livro a ser procurando: ");
+                                        Console.ReadLine();
+                                        autor.SetNome(Console.ReadLine());
+                                        Console.WriteLine("Digite o sobrenome do autor do livro a ser procurado: ");
+                                        autor.SetSobrenome(Console.ReadLine());
+                                        buscarAutor.SetAutor(autor);
+                                        for (int j = 0; j < livros.Count(); j++)
                                         {
-                                            Console.WriteLine("Nenhum livro cadastrado com esse título");
+                                            if ((buscarAutor.GetAutor().GetNome().Equals(livros.Count(j).GetAutor().GetNome())) && (buscarAutor.GetAutor().GetSobrenome().GetNome().Equals(livros.Count(j).GetAutor().GetSobrenome())))
+                                            {
+                                                Console.WriteLine("");
+                                            }
+                                            else
+                                            {
+
+                                            }
                                         }
-                                    }
 
-                                    break;
+                                        Livros.enterToContinue();
+                                        break;
 
-                                case '2':
-                                    Livros buscarAutor = new Livros();
-                                    Autor autor = new Autor();
-                                    Console.WriteLine("Digite o nome do autor do livro a ser procurando: ");
-                                    Console.ReadLine();
-                                    autor.SetNome(Console.ReadLine());
-                                    Console.WriteLine("Digite o sobrenome do autor do livro a ser procurado: ");
-                                    autor.SetSobrenome(Console.ReadLine());
-                                    buscarAutor.SetAutor(autor);
-                                    for (int j = 0; j < livros.Count(); j++)
-                                    {
-                                        if (buscarAutor.GetAutor().GetNome().Equals(livros.Count(j).GetAutor().GetNome()))  && (buscarAutor.GetAutor().GetSobrenome().GetNome().Equals(livros.Count(j).GetAutor().GetSobrenome())) 
-                                                {
-                                                    Console.WriteLine();
-                                                }
-                                                    else                                    
-                                                    {
+                                    case '3':
+                                        Livros buscarEditora = new Livros();
+                                        Editora editora = new Editora();
+                                        Console.WriteLine("Digite o nome da editora do livro a ser procurado: ");
+                                        Console.ReadLine();
+                                        editora.SetNome(Console.ReadLine());
+                                        buscarEditora.GetEditora(editora);
+                                        for (int j = 0; j < livros.Count(); j++)
+                                        {
+                                            if (buscarEditora.GetEditora().GetNome().Equals(livros.Count(j).GetEditora().GetNome()))
+                                            {
+                                                Console.WriteLine(livros.Count(j).ToString());
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Nenhum livro cadastrado com essa editora");
+                                            }
+                                        }
+                                        Livros.enterToContinue();
 
-                                                    }
-                                    }
+                                        break;
 
-                                    Livros.enterToContinue();
-                                    break;
+                                    case '4':
+                                        booleano = false;
 
-                                case '3':
+                                        break;
 
-                                    break;
-                            }
+                                    default:
 
-                        } while (true);
+                                        break;
+                                }
+
+                            } while (booleano);
+
+                        } 
+                        else
+                        {
+                            Console.WriteLine("Tente cadastrar algo antes de procurar!");
+                            Livros.enterToContinue();
+                        }
 
                         break;
 
+                    case '5':
+                        bool1 = false;
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Entrada inválida, tente novamente!");
+                        Livros.enterToContinue();
+
+                        break;
                 }
 
-            } while (boole);
+            } while (bool1);
 
             Console.WriteLine("Sistema finalizado!");
         }
