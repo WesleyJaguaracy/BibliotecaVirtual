@@ -1,5 +1,0 @@
-C:\Users\Wesle\OneDrive\Documentos\GitHub\BibliotecaVirtual\obj\Debug\net6.0\BibliotecaVirtual.csproj.AssemblyReference.cache
-C:\Users\Wesle\OneDrive\Documentos\GitHub\BibliotecaVirtual\obj\Debug\net6.0\BibliotecaVirtual.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Wesle\OneDrive\Documentos\GitHub\BibliotecaVirtual\obj\Debug\net6.0\BibliotecaVirtual.AssemblyInfoInputs.cache
-C:\Users\Wesle\OneDrive\Documentos\GitHub\BibliotecaVirtual\obj\Debug\net6.0\BibliotecaVirtual.AssemblyInfo.cs
-C:\Users\Wesle\OneDrive\Documentos\GitHub\BibliotecaVirtual\obj\Debug\net6.0\BibliotecaVirtual.csproj.CoreCompileInputs.cache
