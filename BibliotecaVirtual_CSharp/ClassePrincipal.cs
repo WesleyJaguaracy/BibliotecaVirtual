@@ -62,12 +62,14 @@ namespace BibliotecaVirtual
                                     {
                                         Console.ReadLine();
                                     }
-                                    int check = int.Parse(Console.ReadLine());
+                                    int codigoLivro = int.Parse(Console.ReadLine());
+                                    Livros livro = livros[codigoLivro];
+                                    int numeroExemplaresDoLivroSelecionado = livro.GetNumeroExemplares();
                                     Livros.SetTotalDeTitulos(totalDeTitulos - 1);
-                                    Livros.SetTotalDeExemplares(totalDeExemplares - livros.Count(check).NumeroExemplares());
-                                    var v = livros.Remove(check);
+                                    Livros.SetTotalDeExemplares(totalDeExemplares - numeroExemplaresDoLivroSelecionado); //pegar o item do array em c#
+                                    livros.Remove(livro);
 
-                                    Console.WriteLine("Livri excluido com êxito!");
+                                    Console.WriteLine("Livro excluido com êxito!");
                                     Livros.enterToContinue();
 
                                     teste = false;
@@ -109,10 +111,10 @@ namespace BibliotecaVirtual
                                     {
                                         Console.ReadLine();
                                     }
-                                    int check = int.Parse(Console.ReadLine());
+                                    int codigoLivro = int.Parse(Console.ReadLine());
                                     Livros.SetTotalDeTitulos(totalDeTitulos - 1);
-                                    Livros.SetTotalDeExemplares(totalDeExemplares - livros.Count(check).NumeroExemplares());
-                                    livros.Remove(check);
+                                    Livros.SetTotalDeExemplares(totalDeExemplares - livros[codigoLivro].GetNumeroExemplares());
+                                    livros.Remove(livros[codigoLivro]);
 
                                     Livros b = new Livros();
 
@@ -168,7 +170,7 @@ namespace BibliotecaVirtual
                                         buscaTitulo.SetTitulo(Console.ReadLine());
                                         for (int j = 0; j < Livros.cont; j++)
                                         {
-                                            if (buscaTitulo.GetTitulo().Equals(livros.Count(j).GetTitulo()))
+                                            if (buscaTitulo.GetTitulo().Equals(livros[j].GetTitulo()))
                                             {
                                                 Console.WriteLine();
                                                 Livros.enterToContinue();
@@ -192,13 +194,14 @@ namespace BibliotecaVirtual
                                         buscarAutor.SetAutor(autor);
                                         for (int j = 0; j < livros.Count(); j++)
                                         {
-                                            if ((buscarAutor.GetAutor().GetNome().Equals(livros.Count(j).GetAutor().GetNome())) && (buscarAutor.GetAutor().GetSobrenome().GetNome().Equals(livros.Count(j).GetAutor().GetSobrenome())))
+
+                                            if ((buscarAutor.GetAutor().GetNome().Equals(livros[j].GetAutor().GetNome())) && (buscarAutor.GetAutor().GetSobrenome().Equals(livros[j].GetAutor().GetNome())))
                                             {
                                                 Console.WriteLine("");
                                             }
                                             else
                                             {
-
+                                                Console.WriteLine("Nenhuum livro cadastrado com esse autor!");
                                             }
                                         }
 
@@ -214,9 +217,9 @@ namespace BibliotecaVirtual
                                         buscarEditora.GetEditora(editora);
                                         for (int j = 0; j < livros.Count(); j++)
                                         {
-                                            if (buscarEditora.GetEditora().GetNome().Equals(livros.Count(j).GetEditora().GetNome()))
+                                            if (buscarEditora.GetEditora().GetNome().Equals(livros[j].GetEditora().GetNome()))
                                             {
-                                                Console.WriteLine(livros.Count(j).ToString());
+                                                Console.WriteLine(livros[j].ToString());
                                             }
                                             else
                                             {
