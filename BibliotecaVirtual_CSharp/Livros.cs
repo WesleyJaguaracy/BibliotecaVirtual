@@ -82,14 +82,15 @@ namespace BibliotecaVirtual
         public void CadastrarLivros()
         {
             Console.Write("Digite o título do livro: ");
-            Console.Read();
+            titulo = Console.ReadLine();
 
             do
             {
                 try
                 {
                     Console.Write("Digite o número de páginas: ");
-                    Console.ReadLine();
+                    numeroPags = int.Parse(Console.ReadLine());
+                    
                     if (cont != 0)
                     {
                         Console.Read();
@@ -111,9 +112,10 @@ namespace BibliotecaVirtual
                 try
                 {
                     Console.Write("Digite o número de exemplares: ");
+                    numeroExemplares = Console.Read();
                     if (cont != 0)
                     {
-                        Console.ReadLine();
+                        numeroExemplares = int.Parse(Console.ReadLine());
                     }
 
                     this.GetNumeroExemplares();

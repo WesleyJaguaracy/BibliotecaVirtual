@@ -6,9 +6,22 @@ namespace BibliotecaVirtual
 {
     class Editora
     {
+        
+
         private string nomeSolicitante { get; set; }
         private string endereco { get; set; }
         private string email { get; set; }
+        private Editora editora { get; set; }
+        //public string Editora { get; set; }
+
+        public Editora GetEditora()
+        {
+            return editora;
+        }
+        public void GetEditora(Editora editora)
+        {
+            this.editora = editora;
+        }
 
         public string GetEmail()
         {
@@ -38,13 +51,13 @@ namespace BibliotecaVirtual
         public void lerEditora()
         {
             Console.Write("Digite o nome da editora: ");
-            Console.ReadLine();
+            string Editora = Console.ReadLine();
 
             Console.Write("Digite o endereço da editora: ");
-            Console.ReadLine();
+            endereco = Console.ReadLine();
 
             Console.Write("Digite o email da editora: ");
-            Console.ReadLine();
+            email = Console.ReadLine();
         }
 
 
@@ -69,7 +82,7 @@ namespace BibliotecaVirtual
                 if (x)
                 {
                     Console.Write("Email inválido\n Informe um email válido");
-                    Console.ReadLine();
+                    email = Console.ReadLine();
                 }
             } while (x);
             return email;

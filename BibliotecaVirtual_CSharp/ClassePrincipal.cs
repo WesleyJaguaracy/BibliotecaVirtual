@@ -19,7 +19,7 @@ namespace BibliotecaVirtual
                 int totalDeTitulos = Livros.GetTotalDeTitulos();
                 int totalDeExemplares = Livros.GetTotalDeExemplares();
 
-                Console.Write(totalDeTitulos + " TÍTULOS CADASTRADOS\n" +
+                Console.WriteLine(totalDeTitulos + " TÍTULOS CADASTRADOS\n" +
                                   totalDeExemplares + " EXEMPLARES CADASTRADOS" +
                                   "\n\t_________________________" +
                                   "\n\t|\t1 - CADASTRAR LIVRO\t|" +
@@ -66,7 +66,7 @@ namespace BibliotecaVirtual
                                     Livros livro = livros[codigoLivro];
                                     int numeroExemplaresDoLivroSelecionado = livro.GetNumeroExemplares();
                                     Livros.SetTotalDeTitulos(totalDeTitulos - 1);
-                                    Livros.SetTotalDeExemplares(totalDeExemplares - numeroExemplaresDoLivroSelecionado); //pegar o item do array em c#
+                                    Livros.SetTotalDeExemplares(totalDeExemplares - numeroExemplaresDoLivroSelecionado); //pega o item do array
                                     livros.Remove(livro);
 
                                     Console.WriteLine("Livro excluido com êxito!");
