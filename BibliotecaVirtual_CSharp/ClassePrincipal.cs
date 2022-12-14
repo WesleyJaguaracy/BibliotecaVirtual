@@ -44,34 +44,34 @@ namespace BibliotecaVirtual
 
                     case '2':
 
-                            if (livros.Count() > 0)
+                        if (livros.Count() > 0)
+                        {
+                            for (int i = 0; i < livros.Count(); i++)
                             {
-                                for (int i = 0; i < livros.Count(); i++)
-                                {
-                                    Console.WriteLine(i + " - " + livros[i].GetTitulo() + "\n_________________________\n");
-                                }
+                                Console.WriteLine(i + " - " + livros[i].GetTitulo() + "\n_________________________\n");
+                            }
 
-                                int cont = 0;
+                            int cont = 0;
 
                             do
                             {
                                 try
                                 {
                                     Console.WriteLine("Insira o código do livro a ser deletado: ");
-                                    if (cont != 0) 
+                                    if (cont != 0)
                                     {
                                         Console.ReadLine();
                                     }
-                                        int check = int.Parse(Console.ReadLine());
-                                        Livros.SetTotalDeTitulos(totalDeTitulos - 1);
-                                        Livros.SetTotalDeExemplares(totalDeExemplares - livros.Count(check).NumeroExemplares());
-                                        livros.Remove(check);
+                                    int check = int.Parse(Console.ReadLine());
+                                    Livros.SetTotalDeTitulos(totalDeTitulos - 1);
+                                    Livros.SetTotalDeExemplares(totalDeExemplares - livros.Count(check).NumeroExemplares());
+                                    livros.Remove(check);
 
-                                        Console.WriteLine("Livri excluido com êxito!");
-                                        Livros.enterToContinue();
+                                    Console.WriteLine("Livri excluido com êxito!");
+                                    Livros.enterToContinue();
 
-                                        teste = false;
-                                    
+                                    teste = false;
+
                                 }
                                 catch (Exception)
                                 {
@@ -81,12 +81,12 @@ namespace BibliotecaVirtual
                                 }
 
                             } while (teste);
-                            } 
-                            else
-                            {
-                                Console.WriteLine("Tente cadastrar algo antes de exluir!");
-                                Livros.enterToContinue();
-                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tente cadastrar algo antes de exluir!");
+                            Livros.enterToContinue();
+                        }
 
                         break;
 
@@ -133,7 +133,7 @@ namespace BibliotecaVirtual
                                 }
                             } while (teste);
 
-                        } 
+                        }
                         else
                         {
                             Console.WriteLine("Tente cadastrar algo antes de editar!");
@@ -145,12 +145,11 @@ namespace BibliotecaVirtual
                     case '4':
                         if (livros.Count() > 0)
                         {
-                            
                             bool booleano = true;
                         }
                         do
                         {
-                            Console.WriteLine("\n\tDeseja pesquisar livros pelo: "+
+                            Console.WriteLine("\n\tDeseja pesquisar livros pelo: " +
                                         "\n\t___________________" +
                                         "\n\t|\t1 - TÍTULO\t\t|" +
                                         "\n\t|\t2 - AUTOR\t\t|" +
@@ -174,7 +173,39 @@ namespace BibliotecaVirtual
                                             Console.WriteLine();
                                             Livros.enterToContinue();
                                         }
+                                        else
+                                        {
+                                            Console.WriteLine("Nenhum livro cadastrado com esse título");
+                                        }
                                     }
+
+                                    break;
+
+                                case '2':
+                                    Livros buscarAutor = new Livros();
+                                    Autor autor = new Autor();
+                                    Console.WriteLine("Digite o nome do autor do livro a ser procurando: ");
+                                    Console.ReadLine();
+                                    autor.SetNome(Console.ReadLine());
+                                    Console.WriteLine("Digite o sobrenome do autor do livro a ser procurado: ");
+                                    autor.SetSobrenome(Console.ReadLine());
+                                    buscarAutor.SetAutor(autor);
+                                    for (int j = 0; j < livros.Count(); j++)
+                                    {
+                                        if (buscarAutor.GetAutor().GetNome().Equals(livros.Count(j).GetAutor().GetNome()))  && (buscarAutor.GetAutor().GetSobrenome().GetNome().Equals(livros.Count(j).GetAutor().GetSobrenome())) 
+                                                {
+                                                    Console.WriteLine();
+                                                }
+                                                    else                                    
+                                                    {
+
+                                                    }
+                                    }
+
+                                    Livros.enterToContinue();
+                                    break;
+
+                                case '3':
 
                                     break;
                             }
