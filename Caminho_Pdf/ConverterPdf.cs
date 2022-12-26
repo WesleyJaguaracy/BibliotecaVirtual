@@ -10,12 +10,14 @@ namespace CaminhoFisicoPdf
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(ExtraiTextoDePdf(@"C:\Users\Wesle\source\repos\CaminhoFisicoPdf\TabelaNomes.pdf"));
-            //Console.ReadKey();
 
             Console.WriteLine("Qual o caminho fisico do arquivo?");
-            string caminhoPdf = Console.ReadLine();
-            var nomeDoArquivo = caminhoPdf;
+            string nomeDoArquivo = Console.ReadLine();
+            Console.WriteLine();
+            
+            Console.WriteLine(ExtraiTextoDePdf(nomeDoArquivo));
+            
+            //caminho fisico a digitar @"C:\Users\Wesle\source\repos\CaminhoFisicoPdf\TabelaNomes.pdf"
         }
 
         static string ExtraiTextoDePdf(string nomeDoArquivo)
