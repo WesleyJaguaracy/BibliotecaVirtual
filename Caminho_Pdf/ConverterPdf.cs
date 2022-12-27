@@ -17,23 +17,23 @@ namespace CaminhoFisicoPdf
             
             Console.WriteLine(ExtraiTextoDePdf(nomeDoArquivo));
             
-            //caminho fisico a digitar @"C:\Users\Wesle\source\repos\CaminhoFisicoPdf\TabelaNomes.pdf"
+            //caminho fisico a ser digitado @"C:\Users\Wesle\source\repos\CaminhoFisicoPdf\TabelaNomes.pdf"
         }
 
         static string ExtraiTextoDePdf(string nomeDoArquivo)
         {
             string result = null;
-            PdfReader pdfReader = new PdfReader(nomeDoArquivo);
-            PdfDocument pdfDoc = new PdfDocument(pdfReader);
-            for (int page = 1; page <= pdfDoc.GetNumberOfPages(); page++)
+            PdfReader pdfReader = new PdfReader(nomeDoArquivo); //variavel PdfReader e objeto pdfReader passando o parametro nomeDoArquivo.
+            PdfDocument pdfDoc = new PdfDocument(pdfReader);    //variavel PdfDocument e objeto pdfDoc passando o parametro pdfReader.
+            for (int page = 1; page <= pdfDoc.GetNumberOfPages(); page++) //Faz a interação porque o texto pode ter varias paginas.
             {
-                ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
-                string conteudo = PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page), strategy);
+                ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy(); // Estrategia de extração de texto e Simples estrategia de extração de textp
+                string conteudo = PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page), strategy); //Pegar texto das paginas.
                 result += conteudo;
             }
             pdfDoc.Close();
             pdfReader.Close();
-            return result;
+            return result; //Retorno
         }
     }
 }
